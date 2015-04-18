@@ -1,0 +1,55 @@
+// JSHint & Google Closure Linter
+JSHint - http://www.jshint.com/install/
+Install node.js - http://nodejs.org/
+Install jshint
+sudo npm install -g jshint
+Install global jshintrc file
+https://github.corp.ebay.com/stubhubf2e/javascript/raw/master/jshint/jshintrc
+Save the jshintrc file somewhere on your file system, like /usr/local/etc
+Google Closure Linter
+Install Google Closure Linter
+sudo easy_install http://closure-linter.googlecode.com/files/closure_linter-latest.tar.gz
+
+// Configuring Sublime Text 3
+Install Package Control - https://sublime.wbond.net/installation
+Install SublimeLinter package in Package Control
+Command-Shift-P => install => sublimelinter
+Install SublimeLinter-jshint package
+Command-Shift-P => install => sublimelinter-jshint
+Install SublimeLinter-gjslint package
+Command-Shift-P => install =>sublimelinter-gjslint
+Update SublimeLinter settings file
+
+// Replace contents with:
+https://github.corp.ebay.com/stubhubf2e/javascript/raw/master/sublime/SublimeLinter.sublime-settings
+Update jshintrc location to where you saved your jshintrc file.
+
+// key binding
+[
+    { "keys": ["alt+/"], "command":"auto_complete" },
+    { "keys": ["alt+up"], "command":"swap_line_up" },
+    { "keys": ["alt+down"], "command":"swap_line_down" },
+
+    { "keys": ["ctrl+k"], "command": "find_next" },
+    { "keys": ["ctrl+shift+k"], "command": "find_prev" },
+    { "keys": ["ctrl+h"], "command": "show_panel", "args": {"panel": "find_in_files"} },
+
+    { "keys": ["ctrl+alt+down"], "command": "duplicate_line" },
+    { "keys": ["ctrl+d"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Line.sublime-macro"} },
+
+    { "keys": ["ctrl+o"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
+    
+    //滚屏
+    { "keys": ["alt+g"], "command":"scroll_lines", "args": {"amount": 2.0 } },
+    { "keys": ["alt+h"], "command":"scroll_lines", "args": {"amount": -2.0 } },
+
+    //大小写
+    { "keys": ["ctrl+shift+x"], "command": "upper_case" },
+    { "keys": ["ctrl+shift+y"], "command": "lower_case" }
+]
+
+// highlight current line
+"highlight_line": true,
+
+// Theme
+RailsCasts
