@@ -1,0 +1,112 @@
+//如果一切顺利的话，可以在用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件.
+//这两个就是SSH Key的秘钥对，id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告诉任何人。
+$ ssh-keygen -t rsa -C "youremail@example.com"
+
+$ git config --global user.name "Your Name"
+$ git config --global user.email "email@example.com"
+$ git config --global color.ui true
+
+//创建仓库
+$ git init
+
+//添加文件到仓库
+$ git add readme.txt
+$ git commit -m "add a readme file"
+
+//仓库当前的状态
+$ git status
+
+//查看文件的difference
+$ git diff readme.txt
+
+//查看提交日志历史
+$ git log
+$ git log --pretty=oneline
+$ git log --graph
+
+//查看命令历史
+$ git reflog
+
+//回退到上一个版本
+$ git reset --hard HEAD^
+//回退到上两个版本
+$ git reset --hard HEAD^^
+//回退到上N个版本
+$ git reset --hard HEAD~N
+//回退到某个版本号
+$ git reset --hard commit_id
+
+//丢弃工作区文件readme.txt的修改
+$ git checkout -- readme.txt
+//丢弃暂存区文件readme.txt的修改
+$ git reset HEAD readme.txt
+
+//删除test.txt文件
+//用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容。
+$ git rm test.txt
+$ git commit -m "remove the file"
+
+//要关联一个远程库，使用命令
+$ git remote add origin git@server-name:path/repo-name.git
+//关联后，使用命令第一次推送master分支的所有内容
+$ git push -u origin master
+//此后，每次本地提交后，使用命令推送最新修改
+$ git push origin master
+
+//克隆一个仓库到本地
+$ git clone git@server-name:path/repo-name.git
+
+//查看所有分支
+$ git branch
+//创建分支
+$ git branch <name>
+//切换分支
+$ git checkout <name>
+//创建+切换分支
+$ git checkout -b <name>
+//删除分支
+$ git branch -d <name>
+//强行删除分支，该分支上有未merge的内容
+$ git branch -D <name>
+
+//合并某分支到当前分支
+$ git merge <name>
+//非Fast forward模式的合并分支，以便历史查看
+$ git merge --no-ff -m "comments here" <name>
+
+// pending changes
+$ git stash
+//查看所有的pending changes
+$ git stash list
+//回复上一个pending的change，并删除该stash内容
+$ git stash pop
+//回复某pending change，但不删除该stash内容
+$ git stash apply stash@{0}
+//删除某pending change
+$ git stash drop stash@{0}
+
+多人协作的工作模式：
+
+    首先，可以试图用git push origin branch-name推送自己的修改；
+    如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
+    如果合并有冲突，则解决冲突，并在本地提交；
+    没有冲突或者解决掉冲突后，再用git push origin branch-name推送就能成功！
+    如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream branch-name origin/branch-name。
+
+//新建一个标签，默认为HEAD，也可以指定一个commit id；
+$ git tag <name>
+//可以查看所有标签
+$ git tag
+//查看某标签的详细信息
+$ git show <tagname>
+//对commit ID是6224937的版本打一个标签name
+$ git tag <name> 6224937
+
+//可以删除一个本地标签
+$ git tag -d <tagname>
+//可以推送一个本地标签到远程仓库
+$ git push origin <tagname>
+//可以推送全部未推送过的本地标签到远程仓库
+$ git push origin --tags
+//可以删除一个远程标签
+$ git push origin :refs/tags/<tagname>
