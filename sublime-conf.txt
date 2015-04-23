@@ -52,4 +52,7 @@ Update jshintrc location to where you saved your jshintrc file.
 "highlight_line": true,
 
 // Theme
-RailsCasts
+RailsCasts,
+
+// Plugin
+SyncedSideBar
