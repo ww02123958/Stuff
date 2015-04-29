@@ -85,6 +85,9 @@ $ git stash apply stash@{0}
 //删除某pending change
 $ git stash drop stash@{0}
 
+//要查看远程库的信息
+$ git remote -v
+
 多人协作的工作模式：
 
     首先，可以试图用git push origin branch-name推送自己的修改；

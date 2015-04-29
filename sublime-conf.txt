@@ -56,3 +56,6 @@ RailsCasts,
 
 // Plugin
 SyncedSideBar
+
+// short-cut
+ctrl + r || ctrl + p + @
