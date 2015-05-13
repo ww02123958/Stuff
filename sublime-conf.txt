@@ -30,6 +30,7 @@ Update jshintrc location to where you saved your jshintrc file.
     { "keys": ["alt+up"], "command":"swap_line_up" },
     { "keys": ["alt+down"], "command":"swap_line_down" },
 
+    { "keys": ["ctrl+f"], "command": "show_panel", "args": {"panel": "find", "reverse": false} },
     { "keys": ["ctrl+k"], "command": "find_next" },
     { "keys": ["ctrl+shift+k"], "command": "find_prev" },
     { "keys": ["ctrl+h"], "command": "show_panel", "args": {"panel": "find_in_files"} },
@@ -38,14 +39,24 @@ Update jshintrc location to where you saved your jshintrc file.
     { "keys": ["ctrl+d"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Line.sublime-macro"} },
 
     { "keys": ["ctrl+o"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
-    
+ 
     //滚屏
     { "keys": ["alt+g"], "command":"scroll_lines", "args": {"amount": 2.0 } },
     { "keys": ["alt+h"], "command":"scroll_lines", "args": {"amount": -2.0 } },
 
     //大小写
     { "keys": ["ctrl+shift+x"], "command": "upper_case" },
-    { "keys": ["ctrl+shift+y"], "command": "lower_case" }
+    { "keys": ["ctrl+shift+y"], "command": "lower_case" },
+
+    { "keys": ["ctrl+shift+p"], "command": "show_overlay", "args": {"overlay": "command_palette"} },
+    { "keys": ["ctrl+p"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
+
+    { "keys": ["ctrl+c"], "command": "copy" },
+    { "keys": ["ctrl+v"], "command": "paste" },
+    { "keys": ["ctrl+s"], "command": "save" },
+    { "keys": ["ctrl+z"], "command": "undo" },
+
+    { "keys": ["ctrl+forward_slash"], "command": "toggle_comment", "args": { "block": false } }
 ]
 
 // highlight current line
