@@ -12,6 +12,8 @@ $ git init
 //添加文件到仓库
 $ git add readme.txt
 $ git commit -m "add a readme file"
+//不增加新的commit记录，覆盖之前的记录
+$ git commit -m "add a readme file" --amend
 
 //仓库当前的状态
 $ git status
@@ -27,14 +29,16 @@ $ git log --graph
 //查看命令历史
 $ git reflog
 
-//回退到上一个版本
-$ git reset --hard HEAD^
+//回退到上一个版本, 保留针对该版本的修改
+$ git reset HEAD^
+//回退到上一个版本, 丢弃针对该版本的修改
+$ git reset HEAD^ --hard
 //回退到上两个版本
-$ git reset --hard HEAD^^
+$ git reset HEAD^^ --hard
 //回退到上N个版本
-$ git reset --hard HEAD~N
+$ git reset HEAD~N --hard
 //回退到某个版本号
-$ git reset --hard commit_id
+$ git reset commit_id --hard
 
 //丢弃工作区文件readme.txt的修改
 $ git checkout -- readme.txt
@@ -48,10 +52,13 @@ $ git commit -m "remove the file"
 
 //要关联一个远程库，使用命令
 $ git remote add origin git@server-name:path/repo-name.git
+
 //关联后，使用命令第一次推送master分支的所有内容
 $ git push -u origin master
 //此后，每次本地提交后，使用命令推送最新修改
 $ git push origin master
+//强制提交，通常在‘git commit --amend’之后使用
+$ git push origin master -f 
 
 //克隆一个仓库到本地
 $ git clone git@server-name:path/repo-name.git
