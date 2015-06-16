@@ -13,6 +13,11 @@ $ git init
 $ git add readme.txt
 $ git commit -m "add a readme file"
 
+//修改最后一次提交
+$ git commit -m --amend
+//强制提交
+$ git push origin master -f
+
 //仓库当前的状态
 $ git status
 
